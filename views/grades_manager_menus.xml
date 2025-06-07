@@ -2,5 +2,5 @@
 <odoo>
     <menuitem id="grades_manager_menu" name="Grade Manager"/>
     <menuitem id="grades_courses_menu" action="grades_course_action" parent="grades_manager.grades_manager_menu" name="Course"/>
-    <menuitem id="teacher_menu" parent="grades_manager.grades_manager_menu" name="Teachers"/>
+    <menuitem id="teacher_menu" action="teachers_action" parent="grades_manager.grades_manager_menu" name="Teachers"/>
 </odoo>

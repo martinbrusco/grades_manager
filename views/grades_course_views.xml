@@ -27,5 +27,34 @@
         </field>
     </record>
 
+    <record id="grades_course_form_view" model="ir.ui.view">
+        <field name="name">grades.course.form</field>
+        <field name="model">grades.manager.course</field>
+            <field name="arch" type="xml">
+                <form string ="Courses">
+                    <sheet>
+                    <group>
+                    
+                        <group >
+                            <field name="name"/>
+                            <field name="student_qty"/>
+                            <field name="grade_average"/>
+                            <field name="description"/>
+                            <field name="is_active"/>
+                        </group>
+                        <group>
+                            <field name="course_start"/>
+                            <field name="course_end"/>
+                            <field name="last_evaluation_date"/>
+                            <field name="course_icon"/>
+                            <field name="course_shift"/>
+                        </group>
+                       
+                    </group>
+                </sheet>
+                </form>
+            </field>
+    </record>
+
     
 </odoo>
