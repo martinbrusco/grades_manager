@@ -10,6 +10,8 @@
     ],
     'data': [
             'security/ir.model.access.csv',
+            'views/grades_course_views.xml',
+            'views/grades_manager_menus.xml',
         ],
     'installable': True,
     'application': True,

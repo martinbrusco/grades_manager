@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="grades_course_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">grades.manager.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="grades_course_tree_view" model="ir.ui.view">
+        <field name="name">grades.course.tree</field>
+        <field name="model">grades.manager.course</field>
+        <field name="arch" type="xml">
+            <tree string ="Courses">
+                <field name="name"/>
+                <field name="student_qty"/>
+                <field name="grade_average"/>
+                <field name="description"/>
+                <field name="is_active"/>
+                <field name="course_start"/>
+                <field name="course_end"/>
+                <field name="last_evaluation_date"/>
+                <field name="course_icon"/>
+                <field name="course_shift"/>
+            </tree>
+        </field>
+    </record>
+
+    
+</odoo>
