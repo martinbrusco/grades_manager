@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="is_teacher"/>
+                </field>
+            <!-- buscamos un elemento en el dom -->
+            <xpath expr="//field [@name='vat']/.." position="inside">
+            <field name="is_freelance"/>
+            </xpath>
+        </field>
+    </record>
+
 
     <record id="teachers_tree_view" model="ir.ui.view">
         <field name="name">teachers.tree.view</field>
@@ -9,6 +24,8 @@
                 <field name="display_name"/>
                 <field name="phone"/>
                 <field name="email"/>
+                <field name="is_teacher"/>
+                <field name="is_freelance"/>
             </tree>
         </field>
     </record>
@@ -25,6 +42,8 @@
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="email"/>
+                        <field name="is_teacher"/>
+                        <field name="is_freelance"/>
                     </group>
                 </sheet>
             </form>
@@ -35,6 +54,7 @@
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form</field>
+        <!-- filtramos en la BD el resultado -->
         <field name="domain">[('is_teacher', '=', True)]</field>
         <field name="context">{'default_is_teacher': True}</field>
         <field name="view_ids"

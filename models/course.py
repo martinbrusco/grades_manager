@@ -5,7 +5,7 @@ class Course(models.Model):
     _description = 'Course'
 
     name = fields.Char(string='Name')
-    student_qty = fields.Integer(string='Student Quantity')   
+    student_qty = fields.Integer(string='Student Quantity')
     grade_average = fields.Float(string='Average Grade')
     description = fields.Text(string='Description')
     is_active = fields.Boolean(string='Is Active')
@@ -17,3 +17,10 @@ class Course(models.Model):
         ('day', 'Day'),
         ('night', 'Night')
     ], string='Course Shift')
+    
+    teacher_id = fields.Many2one(
+        'res.partner',
+        string='Teacher',
+        # Si el profesor es borrado, este campo se pondrá vacío automáticamente.
+        ondelete='set null',
+    )

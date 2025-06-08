@@ -23,6 +23,7 @@
                 <field name="last_evaluation_date"/>
                 <field name="course_icon"/>
                 <field name="course_shift"/>
+                <field name="teacher_id"/>
             </tree>
         </field>
     </record>
@@ -48,6 +49,7 @@
                             <field name="last_evaluation_date"/>
                             <field name="course_icon"/>
                             <field name="course_shift"/>
+                            <field name="teacher_id"/>
                         </group>
                        
                     </group>
