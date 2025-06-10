@@ -1,1 +1,1 @@
-from . import course, res_partner
+from . import course, res_partner, evaluation

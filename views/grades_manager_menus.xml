@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="grades_manager_menu" name="Grade Manager"/>
-    <menuitem id="grades_courses_menu" action="grades_course_action" parent="grades_manager.grades_manager_menu" name="Course"/>
-    <menuitem id="teacher_menu" action="teachers_action" parent="grades_manager.grades_manager_menu" name="Teachers"/>
+
+    <menuitem 
+        id="grades_manager_menu" 
+        name="Grades Manager" 
+        sequence="10"/>
+
+    <menuitem 
+        id="course_main_menu" 
+        name="Course" 
+        parent="grades_manager_menu" 
+        sequence="10"/>
+
+    <menuitem 
+        id="grades_course_menu" 
+        name="Course" 
+        parent="course_main_menu" 
+        action="grades_course_action" 
+        sequence="10"/>
+
+    <menuitem 
+        id="evaluation_menu" 
+        name="Evaluation" 
+        parent="course_main_menu" 
+        action="grades_evaluation_action" 
+        sequence="20"/>
+
+    <menuitem 
+        id="teacher_menu" 
+        name="Teacher" 
+        parent="grades_manager_menu" 
+        action="teachers_action" 
+        sequence="20"/>
+
 </odoo>

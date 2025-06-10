@@ -24,6 +24,7 @@
                 <field name="course_icon"/>
                 <field name="course_shift"/>
                 <field name="teacher_id"/>
+                <field name="evaluation_ids"/>
             </tree>
         </field>
     </record>
@@ -42,6 +43,7 @@
                             <field name="grade_average"/>
                             <field name="description"/>
                             <field name="is_active"/>
+                            <field name="evaluation_ids"/>
                         </group>
                         <group>
                             <field name="course_start"/>
@@ -51,7 +53,6 @@
                             <field name="course_shift"/>
                             <field name="teacher_id"/>
                         </group>
-                       
                     </group>
                 </sheet>
                 </form>

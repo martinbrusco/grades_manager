@@ -21,6 +21,11 @@ class Course(models.Model):
     teacher_id = fields.Many2one(
         'res.partner',
         string='Teacher',
-        # Si el profesor es borrado, este campo se pondrá vacío automáticamente.
         ondelete='set null',
+    )
+    
+    evaluation_ids = fields.One2many(
+        'grades.manager.evaluation', 
+        'course_id', 
+        string='Evaluations'
     )
