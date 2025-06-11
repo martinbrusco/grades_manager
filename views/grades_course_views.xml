@@ -24,6 +24,7 @@
                 <field name="course_icon"/>
                 <field name="course_shift"/>
                 <field name="teacher_id"/>
+                <field name="teacher_email" readonly="1"/>
                 <field name="evaluation_ids"/>
              
             </tree>
@@ -65,6 +66,7 @@
                                 readonly="states != 'register'"
                                 context="{'form_view_ref': 'grades_manager.teachers_form_view'}"
                             />
+                            <field name="teacher_email" readonly="1"/>
                             <!-- USUARIO CREADOR -->
                             <field name="create_uid" invisible="1"/>
                         </group>

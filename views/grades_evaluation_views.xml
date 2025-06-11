@@ -13,7 +13,7 @@
         <field name="arch" type="xml">
             <tree string="Evaluation">
                 <field name="name"/>
-                <field name="course_id"></field>
+                <field name="course_id"/>
                 <field name="date"/>
                 <field name="observations"/>
             </tree>
@@ -28,9 +28,10 @@
                 <sheet>
                     <group>                        
                         <field name="name"/>
-                        <field name="course_id"></field>
+                        <field name="course_id"/>
                         <field name="date"/>
                         <field name="observations"/>
+                        <field name="grades_ids"/> 
                     </group>                        
                 </sheet>
             </form>

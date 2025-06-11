@@ -14,6 +14,7 @@
             'views/grades_res_partner_views.xml',
             'views/grades_evaluation_views.xml',
             'views/grades_student_views.xml',
+            'views/grades_grade_views.xml',
             'views/grades_manager_menus.xml',
             
         ],
