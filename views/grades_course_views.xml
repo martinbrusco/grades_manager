@@ -25,6 +25,7 @@
                 <field name="course_shift"/>
                 <field name="teacher_id"/>
                 <field name="evaluation_ids"/>
+             
             </tree>
         </field>
     </record>
@@ -34,26 +35,62 @@
         <field name="model">grades.manager.course</field>
             <field name="arch" type="xml">
                 <form string ="Courses">
+                <header>
+                    <!-- AGREGAR CAMPO SELECT TIPO BARRA -->
+                   <field name="states" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
                     <sheet>
                     <group>
                     
                         <group >
-                            <field name="name"/>
+                           <!-- CAMPO REQUERIDO -->
+                            <field name="name" required="1"/>
                             <field name="student_qty"/>
                             <field name="grade_average"/>
                             <field name="description"/>
                             <field name="is_active"/>
-                            <field name="evaluation_ids"/>
                         </group>
                         <group>
                             <field name="course_start"/>
                             <field name="course_end"/>
-                            <field name="last_evaluation_date"/>
+                            <!-- CAMPO SOLO LECTURA -->
+                            <field name="last_evaluation_date" 
+                                readonly="1"
+                            />
                             <field name="course_icon"/>
                             <field name="course_shift"/>
-                            <field name="teacher_id"/>
+                            <!-- SOLO SE MOSTRARA ESTUDIANTE SI ES DISTINTO A REGISTRADO -->
+                            <field name="teacher_id" 
+                                domain ="[('is_teacher', '=', True)]" 
+                                readonly="states != 'register'"
+                                context="{'form_view_ref': 'grades_manager.teachers_form_view'}"
+                            />
+                            <!-- USUARIO CREADOR -->
+                            <field name="create_uid" invisible="1"/>
                         </group>
                     </group>
+                    <!-- MEJORAMOS LA VISTA COLOCANDO ESTOS CAMPOS EN LISTAS -->
+                    <notebook>
+                        <page name="evaluations" string="Evaluations">
+                            <field name="evaluation_ids" readonly="states !='register'"/>
+                        </page>
+                        <page name="students" string="Students">
+                            <!-- SOLO SE MOSTRARA ESTUDIANTE SI ES DISTINTO A REGISTRADO -->
+                            <!-- " CONTEXT " ESTO ES PARA TOMAR EL FOMULARIO Y TREE PERSONALIZADO Y NO EL ORIGINAL -->
+                            <field name="student_ids" 
+                                domain ="[('is_student','=',True)]" 
+                                readonly="states != 'register'"
+                                
+                                context="{'tree_view_ref': 'grades_manager.student_tree_view',
+                                'form_view_ref': 'grades_manager.student_form_view'}"
+                            />
+                        </page>
+                    </notebook>
+
+
+
+
+
                 </sheet>
                 </form>
             </field>

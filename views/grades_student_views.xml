@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">res.partner.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+            <!-- buscamos un elemento en el dom -->
+            <xpath expr="//field [@name='vat']/.." position="inside">
+            <field name="is_student"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="student_tree_view" model="ir.ui.view">
+        <field name="name">student.tree.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Student">
+                <field name="display_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="is_student"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="is_student" invisible="1"/>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="is_student"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="students_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <!-- filtramos en la BD el resultado -->
+        <field name="domain">[('is_student', '=', True)]</field>
+        <field name="context">{'default_is_student': True}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                       (0, 0, {'view_mode': 'tree', 'view_id': ref('student_tree_view')}),
+                       (0, 0, {'view_mode': 'form', 'view_id': ref('student_form_view')})]"/>
+    </record>
+
+</odoo>

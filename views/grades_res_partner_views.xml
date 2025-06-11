@@ -53,6 +53,8 @@
     <record id="teachers_action" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">res.partner</field>
+        <!-- PONEMOS EL CHECK MARCADO CON UN PROFESOR NUEVO -->
+        <field name="context">{'default_is_teacher':True}</field>
         <field name="view_mode">tree,form</field>
         <!-- filtramos en la BD el resultado -->
         <field name="domain">[('is_teacher', '=', True)]</field>

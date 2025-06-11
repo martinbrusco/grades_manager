@@ -33,4 +33,11 @@
         action="teachers_action" 
         sequence="20"/>
 
+    <menuitem 
+        id="student_menu" 
+        name="Student" 
+        parent="grades_manager_menu" 
+        action="students_action" 
+        sequence="20"/>
+
 </odoo>
